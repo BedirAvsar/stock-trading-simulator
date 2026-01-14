@@ -1,61 +1,51 @@
-# CS50 Finance
+# CS50 Finance — Stock Trading Simulator
 
-A web-based stock trading simulator built with Python, Flask, and SQLite for Harvard’s CS50x course.
-
-## 📘 Description
-
-CS50 Finance is a fully functional mini stock trading platform that allows users to register, log in, get real stock quotes, buy and sell shares, manage their portfolio, and view transaction history.
-
-The project integrates:
-
-- Real-time stock price lookup (via API)
-- SQLite database for user accounts and transactions
-- Secure user authentication
-- Input validation and error handling
-- Session management
-- Dynamic portfolio calculation
-
-This project replicates the core logic of an online brokerage system in a simplified and educational way.
+A web-based stock trading simulator built with **Python**, **Flask**, and **SQLite**, replicating the core logic of an online brokerage system. This project was developed as part of Harvard’s CS50x and extended with additional backend improvements.
 
 ---
 
-## 🧩 Features
+## 📸 Screenshots
+_coming soon_
 
-### ✔ User Authentication
-- Register new accounts
-- Secure password hashing
-- Login/logout
-- Session-based user tracking
+---
 
-### ✔ Quote Lookup
-Users can search for real-time stock prices using an external API.
+## 🚀 Features
 
-### ✔ Buy & Sell Stocks
-- Validate symbol
-- Validate shares
-- Prevent invalid/negative values
-- Update cash balance
-- Insert transaction records
+### **User Authentication**
+- Register/login/logout  
+- Secure password hashing  
+- Session-based user state
 
-### ✔ Portfolio Overview
-- Display current holdings
-- Live price updates
-- Total market value
-- Available cash
-- Grand total value
+### **Stock Quote Lookup**
+- Query real-time stock prices via API  
+- Handles invalid symbols gracefully
 
-### ✔ Transaction History
-- Timestamped logs
-- Buy and sell operations
-- Price + share amount
+### **Buying & Selling Stocks**
+- Input validation  
+- Balance updates  
+- Transaction logging  
+- Prevents invalid/negative share counts  
+
+### **Portfolio Dashboard**
+- Live prices  
+- Total value calculation  
+- Cash balance  
+- Market value breakdown
+
+### **Transaction History**
+- Timestamped logs  
+- Buy/sell operations  
+- Share count + price tracking  
 
 ---
 
 ## 🗂 Project Structure
+
+```
 finance/
 │
 ├── app.py              # Main Flask route handlers
-├── helpers.py          # API lookup + custom utilities
+├── helpers.py          # API lookup + utilities
 ├── finance.db          # SQLite database
 │
 ├── static/
@@ -63,50 +53,80 @@ finance/
 │   ├── favicon.ico
 │
 └── templates/
-├── layout.html
-├── index.html
-├── quote.html
-├── quoted.html
-├── buy.html
-├── sell.html
-├── history.html
-├── register.html
-├── login.html
-├── apology.html
+    ├── layout.html
+    ├── index.html
+    ├── quote.html
+    ├── quoted.html
+    ├── buy.html
+    ├── sell.html
+    ├── history.html
+    ├── register.html
+    ├── login.html
+    ├── apology.html
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/BedirAvsar/cs50-finance
+cd cs50-finance
+```
+
+### 2️⃣ Create a virtual environment
+```bash
+python3 -m venv venv
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
+```
+
+### 3️⃣ Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Set your API key  
+Create `.env` file:
+
+```
+API_KEY=your_api_key_here
+```
+
+### 5️⃣ Run the app
+```bash
+flask run
+```
+
+---
+
+## 🧠 How It Works (Backend Flow)
+
+1. User logs in → session created  
+2. User searches stock quote → API request  
+3. Buy/sell operation validated  
+4. SQLite updates:
+   - cash balance  
+   - shares table  
+   - transaction logs  
+5. Portfolio recalculates live market value  
+6. History stores all actions  
 
 ---
 
 ## 💡 What I Learned
 
-Developing CS50 Finance improved several key backend engineering skills:
+This project strengthened several key backend skills:
 
-- Flask routing, templates, sessions
-- Using SQLite and SQL queries safely
-- API integration and JSON parsing
-- Server-side input validation
-- Designing relational database schemas
-- Managing state and persistent data
-- Handling edge cases and user errors
-- Debugging backend logic
-
-This project strengthened my understanding of backend architecture and web application logic.
+- Flask routing, sessions, templates  
+- SQL queries and database schema design  
+- JSON parsing and API integration  
+- Error handling & edge case management  
+- Authentication logic and stateful design  
+- Debugging request flow and logic consistency  
 
 ---
 
-## ▶️ How to Run Locally
-
-1. Install dependencies:
-pip install -r requirements.txt
-
-2. Start Flask server:
-flask run
-
-3. Visit in browser:
-http://127.0.0.1:5000/
----
-
-## 📜 Notes
-
-This project is based on Harvard CS50x Week 9 (Flask), but heavily customized and extended by me.
-
----
+## 📄 Note
+This project is based on Harvard CS50x Week 9 but includes custom improvements and refactoring.
